@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { FC } from 'react';
-import { Text, View } from 'react-native';
 
 import { TypeRootStackParamList } from './navigation.types';
 import { userRoutes } from './user.routes';
