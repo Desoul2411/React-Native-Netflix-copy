@@ -23,7 +23,11 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 				colors={['#DC3F41', '#a6282b']}
 			>
 				{icon && <Feather name={icon} size={18} color='white' />}
-				<Text className={cn('text-white text-center font-medium text-lg')}>
+				<Text
+					className={cn('text-white text-center font-medium text-lg', {
+						'ml-2': !!icon
+					})}
+				>
 					{children}
 				</Text>
 			</LinearGradient>
