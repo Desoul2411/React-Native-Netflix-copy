@@ -5,7 +5,7 @@ import { Text, TextInput, View } from 'react-native';
 
 import { IField } from './field.interface';
 
-export const Field = <T extends Record<string, any>>({
+const Field = <T extends Record<string, any>>({
 	control,
 	rules,
 	name,
@@ -42,3 +42,5 @@ export const Field = <T extends Record<string, any>>({
 		/>
 	);
 };
+
+export default Field;
