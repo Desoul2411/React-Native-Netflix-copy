@@ -1,14 +1,15 @@
 import { AntDesign } from '@expo/vector-icons';
-import { deleteItemAsync, getItemAsync } from 'expo-secure-store';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { Pressable, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 
-import { Button, Heading, Loader } from '@/components/ui';
+import { Button, Heading, Layout, Loader } from '@/components/ui';
 
 import { useAuth } from '@/hooks/useAuth';
+import { useScaleOnMount } from '@/hooks/useScaleOnMount';
 
-import { EnumSecureStore, IAuthFormData } from '@/shared/types/auth.interface';
+import { IAuthFormData } from '@/shared/types/auth.interface';
 
 import { AuthService } from '@/services/auth/auth.service';
 
@@ -24,11 +25,20 @@ const Profile: FC = () => {
 	});
 
 	const { isLoading, onSubmit } = useProfile(setValue);
+	const { styleAnimation } = useScaleOnMount();
 
 	return (
-		<View className='mt-20 px-10'>
+		<Layout isHasPadding>
 			<Heading title='Profile' />
-			{/* Picture user */}
+			<Animated.View
+				style={styleAnimation}
+				className='my-6 items-center justify-center'
+			>
+				<Image
+					source={require('./avatar-guest.jpg')}
+					className='w-40 h-40 rounded-2xl'
+				/>
+			</Animated.View>
 
 			{isLoading ? (
 				<Loader />
@@ -72,7 +82,7 @@ const Profile: FC = () => {
 			>
 				<Text className='text-white'>Show refreshToken</Text>
 			</Pressable> */}
-		</View>
+		</Layout>
 	);
 };
 
