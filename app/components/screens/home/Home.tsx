@@ -1,18 +1,19 @@
 import React, { FC } from 'react';
-import { Pressable, Text, View } from 'react-native';
-import { white } from 'tailwindcss/colors';
+
+import { Layout, Loader } from '@/components/ui';
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation';
 
+import Carousel from './carousel/Carousel';
+import { useGetAllMovies } from './useGetAllMovies';
+
 const Home: FC = () => {
-	const { navigate } = useTypedNavigation();
+	const { movies, isLoading } = useGetAllMovies();
+
 	return (
-		<View>
-			<Text>Home</Text>
-			<Pressable onPress={() => navigate('Auth')}>
-				<Text className='text-white'>Go to login</Text>
-			</Pressable>
-		</View>
+		<Layout>
+			{isLoading ? <Loader /> : movies?.length && <Carousel movies={movies} />}
+		</Layout>
 	);
 };
 
