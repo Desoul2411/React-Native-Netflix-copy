@@ -5,6 +5,8 @@ export interface IGenre {
 	description: string;
 }
 
+export interface IGenreEditInput extends Omit<IGenre, '_id'> {}
+
 export interface IActor {
 	_id: string;
 	photo: string;

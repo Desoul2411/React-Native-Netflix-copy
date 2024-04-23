@@ -1,12 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 
-import { useTypedNavigation } from '@/hooks/useTypedNavigation';
+import Description from '@/components/ui/heading/Description';
+import Heading from '@/components/ui/heading/Heading';
+import MovieItem from '@/components/ui/movie/movie-item/MovieItem';
 
-import Description from '../../heading/Description';
-import Heading from '../../heading/Heading';
-import MovieItem from '../movie-item/MovieItem';
+import { useTypedNavigation } from '@/hooks/useTypedNavigation';
 
 import { ImovieCatalog } from './movie-catalog.interface';
 
@@ -25,14 +25,16 @@ const MovieCatalog: FC<ImovieCatalog> = ({
 				{isBackButton && (
 					<Pressable onPress={goBack}>
 						<Ionicons
-							className='arrow-back-circle-outline'
+							name='arrow-back-circle-outline'
 							size={32}
 							color='white'
 						/>
 					</Pressable>
 				)}
 			</View>
+
 			{description && <Description text={description} />}
+
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View className='flex-row flex-wrap justify-between mt-5 mb-32'>
 					{movies?.length ? (

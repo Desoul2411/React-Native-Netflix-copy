@@ -58,14 +58,17 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, style }) => {
 			/>
 			<BlurView
 				intensity={25}
-				className={cn(
+				className={
 					'absolute w-full bottom-0 left-0 right-0 items-center pt-0.5 px-2'
-				)}
+				}
 			>
 				<View className='-ml-2 -mb-0.5'>
 					<Rating rating={movie.rating} size={16} />
 				</View>
-				<Text className='text-white text-lg font-semibold mb-1'>
+				<Text
+					className='text-white text-lg font-semibold mb-1'
+					numberOfLines={1}
+				>
 					{movie.title}
 				</Text>
 			</BlurView>
