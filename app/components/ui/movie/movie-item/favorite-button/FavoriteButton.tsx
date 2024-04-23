@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import cn from 'clsx';
 import React, { FC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Animated, { withSpring } from 'react-native-reanimated';
 
 import BlurButton from '../../..//blur-button/BlurButton';
@@ -20,6 +20,7 @@ const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 
 	return (
 		<BlurButton
+			isSmall={isSmall}
 			className={cn({
 				'w-8 h-8 rounded-lg': isSmall
 			})}

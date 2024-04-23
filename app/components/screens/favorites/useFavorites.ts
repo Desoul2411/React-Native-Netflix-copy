@@ -10,7 +10,8 @@ export const useFavorites = () => {
 	const { data: favoriteMovies, isFetching: isLoading } = useQuery({
 		queryKey: ['favorite movies'],
 		queryFn: () => UserService.getFavorites(),
-		enabled: !!user
+		enabled: !!user,
+		staleTime: Infinity
 	});
 
 	return { favoriteMovies, isLoading };
