@@ -24,7 +24,7 @@ export const MovieService = {
 	},
 	async getBySlug(slug: string) {
 		return await request<IMovie>({
-			url: getMoviesUrl(`by-slug/${slug}`),
+			url: getMoviesUrl(`/by-slug/${slug}`),
 			method: 'GET'
 		});
 	},
