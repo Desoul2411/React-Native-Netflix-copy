@@ -7,13 +7,9 @@ import { BlurButton, FavoriteButton, Rating } from '@/components/ui';
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation';
 
-import { IMovie } from '@/shared/types/movie.interface';
+import { IMovieComponent } from './movie-page.interface';
 
-interface IMovieHeader {
-	movie: IMovie;
-}
-
-const MovieHeader: FC<IMovieHeader> = ({ movie }) => {
+const MovieHeader: FC<IMovieComponent> = ({ movie }) => {
 	const { goBack } = useTypedNavigation();
 	const { top } = useSafeAreaInsets();
 
