@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { Animated } from 'react-native';
 
 import { Layout, Loader } from '@/components/ui';
 
@@ -8,6 +9,7 @@ import MovieContent from './movie-content/MovieContent';
 import { useMovie } from './useMovie';
 
 const Movie = () => {
+	const y = useRef(new Animated.Value(0)).current;
 	const { movie, isLoading } = useMovie();
 
 	if (isLoading) return <Loader />;
@@ -15,9 +17,9 @@ const Movie = () => {
 
 	return (
 		<Layout style={{ paddingTop: 0 }}>
-			<MovieHeader movie={movie} />
-			<MovieBackground movie={movie} />
-			<MovieContent movie={movie} />
+			<MovieHeader movie={movie} y={y} />
+			<MovieBackground movie={movie} y={y} />
+			<MovieContent movie={movie} y={y} />
 		</Layout>
 	);
 };

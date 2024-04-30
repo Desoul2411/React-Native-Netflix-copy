@@ -1,18 +1,20 @@
 import { Entypo } from '@expo/vector-icons';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
 
 import { GenreList, Rating } from '@/components/ui';
 
-import { IMovie } from '@/shared/types/movie.interface';
+import { IMovieComponent } from '../movie-page.interface';
+import { HEADER_HEIGHT } from '../movie.constant';
 
-interface IMovieInfo {
-	movie: IMovie;
-}
+const MovieInfo: FC<IMovieComponent> = ({ movie, y }) => {
+	const opacity = y.interpolate({
+		inputRange: [-HEADER_HEIGHT, 0, HEADER_HEIGHT / 2],
+		outputRange: [1, 1, 0]
+	});
 
-const MovieInfo: FC<IMovieInfo> = ({ movie }) => {
 	return (
-		<Animated.View className={'px-6 mb-3'}>
+		<Animated.View className='px-6 mb-3' style={{ opacity }}>
 			<Text
 				className='text-5xl font-semibold text-[#F9FCFC] mb-2 pr-2'
 				numberOfLines={2}
@@ -29,7 +31,7 @@ const MovieInfo: FC<IMovieInfo> = ({ movie }) => {
 						marginLeft: 4
 					}}
 				/>
-				<Text style={styles.text}>{movie.parameters.duration}</Text>
+				<Text style={styles.text}>{movie.parameters.duration} min.</Text>
 				<Entypo
 					name='dot-single'
 					size={18}
