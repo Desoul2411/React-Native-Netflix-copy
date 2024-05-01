@@ -7,10 +7,12 @@ import MovieBackground from './MovieBackground';
 import MovieHeader from './MovieHeader';
 import MovieContent from './movie-content/MovieContent';
 import { useMovie } from './useMovie';
+import { useUpdateCountOpened } from './useUpdateCountOpened';
 
 const Movie = () => {
 	const y = useRef(new Animated.Value(0)).current;
 	const { movie, isLoading } = useMovie();
+	useUpdateCountOpened();
 
 	if (isLoading) return <Loader />;
 	if (!movie) return null;
