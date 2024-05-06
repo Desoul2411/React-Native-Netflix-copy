@@ -4,6 +4,7 @@ export { default as Heading } from './heading/Heading';
 export { default as Layout } from './layout/Layout';
 export { default as BlurButton } from './blur-button/BlurButton';
 export { default as NotFound } from './NotFound';
+export { default as AdminNavigation } from './admin-navigation/AdminNavigation';
 
 export { default as Field } from './form-elements/field/Field';
 export { default as DismissKeyboard } from './form-elements/field/DismissKeyboard';
