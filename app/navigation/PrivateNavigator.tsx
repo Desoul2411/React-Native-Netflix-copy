@@ -1,18 +1,18 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import Auth from '@/components/screens/auth/Auth';
-import Screen404 from '@/components/screens/system/Screen404';
 
 import { useAuth } from '@/hooks/useAuth';
 
 import { TypeRootStackParamList } from './navigation.types';
-import { routes } from './user.routes';
+import { routes, userRoutes } from './user.routes';
 
 const Stack = createNativeStackNavigator<TypeRootStackParamList>();
 
 const PrivateNavigator: FC = () => {
 	const { user } = useAuth();
+
 	return (
 		<Stack.Navigator
 			screenOptions={{
@@ -23,19 +23,13 @@ const PrivateNavigator: FC = () => {
 			}}
 		>
 			{user ? (
-				routes.map(route =>
-					user.isAdmin || !route.isAdmin ? (
-						<Stack.Screen key={route.name} {...route} />
-					) : (
-						<Stack.Screen
-							key='Screen404'
-							name='Screen404'
-							component={Screen404}
-						/>
-					)
+				user.isAdmin ? (
+					routes.map(route => <Stack.Screen key={route.name} {...route} />)
+				) : (
+					userRoutes.map(route => <Stack.Screen key={route.name} {...route} />)
 				)
 			) : (
-				<Stack.Screen key='Auth' name='Auth' component={Auth} />
+				<Stack.Screen name='Auth' component={Auth} />
 			)}
 		</Stack.Navigator>
 	);
