@@ -11,11 +11,11 @@ export const useSearchForm = () => {
 	});
 
 	const searchTerm = watch('searchTerm');
-	const debounceSearch = useDebounce(searchTerm, 500);
+	const debouncedSearch = useDebounce(searchTerm, 500);
 
 	return useMemo(
 		() => ({
-			debounceSearch,
+			debouncedSearch,
 			searchTerm,
 			control
 		}),

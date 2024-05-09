@@ -1,11 +1,28 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import { FC } from 'react';
 
-const UserList = () => {
+import {
+	AdminNavigation,
+	AdminTable,
+	AdminTableHeader,
+	Layout
+} from '@/components/ui';
+
+import { useUsers } from './useUsers';
+
+const UserList: FC = () => {
+	const { control, isLoading, data, deleteAsync } = useUsers();
+
 	return (
-		<View>
-			<Text>UserList</Text>
-		</View>
+		<Layout isHasPadding>
+			<AdminNavigation title='Users' />
+			<AdminTableHeader control={control} />
+			<AdminTable
+				tableItems={data}
+				isLoading={isLoading}
+				headerItems={['Email', 'Date register']}
+				removeHandler={deleteAsync}
+			/>
+		</Layout>
 	);
 };
 
