@@ -19,8 +19,6 @@ const CountUsers: FC = () => {
 
 	const { styleAnimation } = useScaleOnMount();
 
-	console.log(data);
-
 	return (
 		<View className={`items-center justify-center ${STYLE_BLOCK}`}>
 			{isLoading ? (
