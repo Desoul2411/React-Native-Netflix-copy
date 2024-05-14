@@ -48,7 +48,7 @@ export const MovieService = {
 		});
 	},
 	async create() {
-		return await request<IMovie>({
+		return await request<string>({
 			url: getMoviesUrl(''),
 			method: 'POST'
 		});
