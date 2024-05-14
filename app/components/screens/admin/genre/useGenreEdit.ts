@@ -20,8 +20,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
 	});
 
 	useEffect(() => {
-		console.log('data useGenreEdit', data);
-		if (data?._id) {
+		if (data) {
 			Object.entries<string>(data).forEach(([key, value]) => {
 				setValue(key as keyof IGenreEditInput, value);
 			});

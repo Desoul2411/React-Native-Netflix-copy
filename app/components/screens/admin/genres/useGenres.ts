@@ -23,7 +23,7 @@ export const useGenres = () => {
 				(genre): ITableItem => ({
 					_id: genre._id,
 					editNavigate: () =>
-						navigate('UserEdit', {
+						navigate('GenreEdit', {
 							id: genre._id
 						}),
 					items: [genre.name, genre.slug]
