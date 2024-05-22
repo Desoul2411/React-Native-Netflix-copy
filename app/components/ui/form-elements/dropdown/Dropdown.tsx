@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
@@ -18,17 +18,19 @@ const Dropdown: FC<IDropdown> = ({
 	const [value, setValue] = useState<string[] | null>(field.value);
 	const [items, setItems] = useState(options);
 
-	// const getValue = useCallback((): string[] | null => {
-	// 	if (field.value) {
-	// 		return isMulti
-	// 			? items.filter(option => field.value.indexOf(option.value) >= 0)
-	// 			: items.find(option => option.value === field.value)?.value
-	// 	} else return null
-	// }, [field.value])
+	const getValue = useCallback((): string[] | null => {
+		if (field.value) {
+			return isMulti
+				? items
+						.filter(option => field.value.indexOf(option.value) >= 0)
+						.map(option => option.value)
+				: items.find(option => option.value === field.value)?.value;
+		} else return null;
+	}, [field.value]);
 
-	// useEffect(() => {
-	// 	if (!value) setValue(getValue())
-	// }, [field.value])
+	useEffect(() => {
+		if (!value) setValue(getValue());
+	}, [field.value]);
 
 	return (
 		<View className='z-10' style={style}>

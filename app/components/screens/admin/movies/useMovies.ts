@@ -16,7 +16,7 @@ export const useMovies = () => {
 	const { navigate } = useTypedNavigation();
 
 	const queryData = useQuery({
-		queryKey: ['search movies', debouncedSearch],
+		queryKey: ['get movies', debouncedSearch],
 		queryFn: () => MovieService.getAll(debouncedSearch),
 		select: data =>
 			data.map(
