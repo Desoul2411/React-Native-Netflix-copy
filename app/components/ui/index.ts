@@ -23,3 +23,4 @@ export { default as GenreList } from './movie/movie-item/GenreList';
 export { default as FavoriteButton } from './movie/movie-item/favorite-button/FavoriteButton';
 
 export { default as MovieCatalog } from './movie/catalog/MovieCatalog';
+export { default as UploadField } from './form-elements/upload-field/UploadField';

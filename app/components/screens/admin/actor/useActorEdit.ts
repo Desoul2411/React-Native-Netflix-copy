@@ -20,7 +20,6 @@ export const useActorEdit = (setValue: UseFormSetValue<IActorEditInput>) => {
 	});
 
 	useEffect(() => {
-		console.log('data useGenreEdit', data);
 		if (data) {
 			Object.entries<any>(data).forEach(([key, value]) => {
 				setValue(key as keyof IActorEditInput, value);

@@ -23,7 +23,7 @@ export const useActors = () => {
 				(actor): ITableItem => ({
 					_id: actor._id,
 					editNavigate: () =>
-						navigate('UserEdit', {
+						navigate('ActorEdit', {
 							id: actor._id
 						}),
 					items: [actor.name, String(actor.countMovies)]
