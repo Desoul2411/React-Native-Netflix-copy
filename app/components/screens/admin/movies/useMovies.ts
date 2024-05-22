@@ -23,7 +23,7 @@ export const useMovies = () => {
 				(movie): ITableItem => ({
 					_id: movie._id,
 					editNavigate: () =>
-						navigate('UserEdit', {
+						navigate('MovieEdit', {
 							id: movie._id
 						}),
 					items: [

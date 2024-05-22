@@ -24,3 +24,4 @@ export { default as FavoriteButton } from './movie/movie-item/favorite-button/Fa
 
 export { default as MovieCatalog } from './movie/catalog/MovieCatalog';
 export { default as UploadField } from './form-elements/upload-field/UploadField';
+export { default as Dropdown } from './form-elements/dropdown/Dropdown';

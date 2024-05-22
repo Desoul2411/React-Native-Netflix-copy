@@ -40,7 +40,9 @@ export const useMovieEdit = (setValue: UseFormSetValue<IMovieEditInput>) => {
 				text2: 'update was successful'
 			});
 
-			await queryClient.invalidateQueries({ queryKey: ['search movies'] });
+			await queryClient.invalidateQueries({
+				queryKey: ['get movies']
+			});
 		}
 	});
 
